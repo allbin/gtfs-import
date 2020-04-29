@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func AddHoursToTimeString(time string, sep string, hours int) string {
+func FormatTimeString(time string, sep string) string {
 	parts := strings.Split(time, sep)
 	int_parts := []int{}
 	for i, _ := range parts {
@@ -15,9 +15,6 @@ func AddHoursToTimeString(time string, sep string, hours int) string {
 			panic(err)
 		}
 		int_parts = append(int_parts, val)
-	}
-	if int_parts[0] < 4 {
-		int_parts[0] = int_parts[0] + hours
 	}
 	return fmt.Sprintf("%02d"+sep+"%02d"+sep+"%02d", int_parts[0], int_parts[1], int_parts[2])
 }
