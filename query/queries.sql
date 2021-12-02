@@ -38,9 +38,9 @@ CREATE TABLE routes
 (
     route_id         VARCHAR(255) NOT NULL PRIMARY KEY,
     agency_id        VARCHAR(255) references agency (agency_id),
-    route_type       VARCHAR(255),
     route_short_name VARCHAR(255),
     route_long_name  VARCHAR(255),
+    route_type       VARCHAR(255),
     route_url        VARCHAR(255)
 );
 
