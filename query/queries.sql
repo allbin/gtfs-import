@@ -64,6 +64,7 @@ CREATE TABLE stop_times
     pickup_type    SMALLINT,
     drop_off_type  SMALLINT
 );
+CREATE INDEX IF NOT EXISTS stop_times_stop_id_idx ON stop_times(stop_id);
 
 
 -- name: create-table-trips
