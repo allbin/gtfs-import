@@ -17,7 +17,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-        - image: eu.gcr.io/allbinary-204807/gtfs/go-gtfs-import
+        - image: europe-west3-docker.pkg.dev/allbinary-204807/gtfs/gtfs-import
           name: go-gtfs-query-import
           envFrom:
             - secretRef:
