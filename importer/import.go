@@ -27,6 +27,11 @@ func Run() {
 	if err := repo.Connect(conf.Database); err != nil {
 		panic(err)
 	}
+
+	url := os.Getenv("GTFS_URL")
+	if url == "" {
+		url = conf.Host.Url
+	}
 	if err := filehandling.DownloadFile("gtfs.zip", conf.Host.Url); err != nil {
 		panic(err)
 	}

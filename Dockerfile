@@ -3,9 +3,6 @@
 # Start from the latest golang base image
 FROM golang:alpine as builder
 
-# Add Maintainer Info
-LABEL maintainer="Jonatan artback <artback@protonmail.com>"
-
 # Set the Current Working Directory inside the container
 WORKDIR /app
 

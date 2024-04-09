@@ -1,18 +1,19 @@
 package config
 
 import (
+	"os"
+
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
 )
 
 const filePath = "config/config.yaml"
 
 type Configuration struct {
 	Database DatabaseConfiguration `yaml:"database"`
-	Host     HostConfiguration     `yaml:host`
+	Host     HostConfiguration     `yaml:"host"`
 }
 type HostConfiguration struct {
-	Url string `yaml:url`
+	Url string `yaml:"url"`
 }
 
 type DatabaseConfiguration struct {
@@ -27,7 +28,7 @@ type DatabaseConfiguration struct {
 var c *Configuration
 
 func Init(co *Configuration) error {
-	data, err := ioutil.ReadFile(filePath)
+	data, err := os.ReadFile(filePath)
 	if err != nil {
 		return err
 	}
