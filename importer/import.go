@@ -32,7 +32,7 @@ func Run() {
 	if url == "" {
 		url = conf.Host.Url
 	}
-	if err := filehandling.DownloadFile("gtfs.zip", conf.Host.Url); err != nil {
+	if err := filehandling.DownloadFile("gtfs.zip", url); err != nil {
 		panic(err)
 	}
 	if _, err := filehandling.Unzip("gtfs.zip", "./gtfs"); err != nil {
