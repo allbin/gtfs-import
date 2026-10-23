@@ -1,6 +1,6 @@
 module github.com/allbin/gtfs2postgis
 
-go 1.22
+go 1.27
 
 require (
 	github.com/jasonlvhit/gocron v0.0.0-20200423141508-ab84337f7963
