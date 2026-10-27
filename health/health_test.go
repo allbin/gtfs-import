@@ -21,12 +21,24 @@ func TestHealthGet(t *testing.T) {
 	}
 }
 
+func TestHealthHead(t *testing.T) {
+	rec := httptest.NewRecorder()
+	Handler().ServeHTTP(rec, httptest.NewRequest(http.MethodHead, Path, nil))
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, want %d", rec.Code, http.StatusOK)
+	}
+}
+
 func TestHealthRejectsOtherMethods(t *testing.T) {
 	rec := httptest.NewRecorder()
 	Handler().ServeHTTP(rec, httptest.NewRequest(http.MethodPost, Path, nil))
 
 	if rec.Code != http.StatusMethodNotAllowed {
 		t.Fatalf("status = %d, want %d", rec.Code, http.StatusMethodNotAllowed)
+	}
+	if got, want := rec.Header().Get("Allow"), "GET, HEAD"; got != want {
+		t.Errorf("Allow = %q, want %q", got, want)
 	}
 }
 
