@@ -9,3 +9,7 @@
 - POSTGRES_USER
 - POSTGRES_PASSWORD
 - SLACK_URL
+
+### health
+
+The worker listens on port 8080 and answers `GET /health` with `{"status":"ok"}`; the deployment's readiness and liveness probes use it.
